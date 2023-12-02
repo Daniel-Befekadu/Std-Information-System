@@ -1,0 +1,26 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'feedstyle.css' %}">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    
+    <title>Feed</title> 
+</head>
+<body>
+    {% include 'cNavbar.html' %}
+    <div class="main">
+        <header>Today</header>
+        <div class="container">
+            <ul>
+                {% for item in data %}
+                    <li>{{ item.college }}</li>
+                {% endfor %}
+            </ul>
+        </div>       
+    </div>
+</body>
+</html>

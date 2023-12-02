@@ -1,0 +1,73 @@
+{% load static %}
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'senioreg.css' %}">
+     <title>Senior Student Regisration Form </title> 
+</head>
+<body>   
+    {% include 'rNavbar.html' %}
+    <div class="main">
+        <div class="container">
+            <form method="post" action="">
+                {% csrf_token %}     
+                <div class="form first">
+                    <div class="details personal">
+                        <span class="title">Personal Details</span>
+    
+                        <div class="fields">
+                            <div class="input-field">
+                                <label>ID Number</label>
+                                <input type="text" name="id" id="id" placeholder="Enter your ID Number" required>
+                            </div>
+    
+                            <div class="input-field">
+                                <label>Department</label>
+                                <input type="text" name="dep" id="dep" placeholder="Enter your Department" required>
+                            </div>
+    
+                            <div class="input-field">
+                                <label>Section</label>
+                                <input type="text" name="section" id="section" placeholder="Enter your Section" required>
+                            </div>
+    
+                            <div class="input-year">
+                                <label>Year</label>
+                                <select name="year" id="year" required>
+                                    <option disabled selected>Your Year</option>
+                                    <option>1st</option>
+                                    <option>2nd</option>
+                                    <option>3rd</option>
+                                    <option>4th</option>
+                                    <option>5th</option>
+                                    <option>6th</option>
+                                    <option>7th</option>
+                                </select>
+                            </div>
+    
+                            <div class="input-year">
+                                <label>Semister</label>
+                                <select name="semi" id="semi" required>
+                                    <option disabled selected>Your Semister</option>
+                                    <option>1st</option>
+                                    <option>2nd</option>
+                                </select>
+                            </div>
+    
+                            
+    
+                        <button class="nextBtn" type="submit">
+                            <span class="btnText">Register</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div> 
+                </div>
+                </div>
+            </form>
+        </div>
+        </div>    
+</body>
+</html>

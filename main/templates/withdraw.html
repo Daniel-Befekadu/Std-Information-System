@@ -1,0 +1,90 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'withdraw.css' %}">
+    <title>Withdrawal Form </title> 
+</head>
+<body>
+    {% include 'sNavbar.html' %}
+    <div class="main">
+    <div class="container">
+        <header>Student Withdrawal Form</header>
+        <form action = "" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <div class="form first">
+                <div class="details personal">
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>First Name</label>
+                            <input type="text" name="fName" id="fName" placeholder="First Name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Middel Name</label>
+                            <input type="text" name="mName" id="mName" placeholder="Middel Name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Last Name</label>
+                            <input type="text" name="lName" id="lName" placeholder="Last Name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>ID Number</label>
+                            <input type="text" name="stuid" id="stuid" placeholder="ID Number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Department</label>
+                            <input type="text" name="department" id="department" placeholder="Department" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Year</label>
+                            <select name="year" id="year" required>
+                                <option disabled selected>Your Year</option>
+                                <option>1st</option>
+                                <option>2nd</option>
+                                <option>3rd</option>
+                                <option>4th</option>
+                                <option>5th</option>
+                                <option>6th</option>
+                                <option>7th</option>
+                            </select>
+                        </div>
+
+                        <div class="reason">
+                            <label>Reason</label>
+                            <!--<textarea id="comment-box" name="comment" rows="10" required></textarea>-->
+                            <input type="textarea" name="reason" id="reason" rows="10" placeholder="Enter your Case" required>
+                        </div>
+
+                        <div class="input-file">
+                            <label>Medical or Other Evidences</label>
+                            <input type="file" name="evid" id="evid">
+                        </div>
+                        </div>
+                        
+                        <button class="nextBtn" type ="submit">
+                            <span class="btnText">Submit</span>
+                           <i class="uil uil-navigator"></i>
+                        </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

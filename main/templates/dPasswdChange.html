@@ -1,0 +1,89 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'passwdchange.css' %}">
+    <style>
+        .message {
+            align-items: center;
+            text-align: center;
+            justify-content: center;   
+        }        
+        .messages li {
+            padding: 7px;
+            margin-bottom: 7px;
+            color: #fff;
+            border-radius: 4px;
+            width: 300px;
+            height: 40px;
+            font-size: 14px;
+            text-align: center;
+            justify-content: center;
+            color: rgb(255, 0, 0);
+            font-weight: bold;
+        }
+        .success {
+            color: rgb(84, 196, 84);
+            font-size: 14px;
+            text-align: center;
+            justify-content: center;
+        }
+        .error {
+            color: rgb(170, 48, 48);
+            font-size: 14px;
+            text-align: center;
+            justify-content: center;
+        }
+        </style>
+    <title>Password Change</title> 
+</head>
+<body>
+    {% include 'dNavbar.html' %}
+    <div class="main">
+    <div class="container">
+        <form action = "" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form first">
+                    <div class="fields">
+                            <br><br><br><br>
+                    
+                        <div class="input-field">
+                            <label>Current Password</label>
+                            <input type="text" name="crpasswd" id="crpasswd" placeholder="Current Password" required>
+                        </div>
+                        
+                        <div class="input-field">
+                            <label>New Password</label>
+                            <input type="password" name="passwd" id="passwd" placeholder="New Password" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Confirm Password</label>
+                            <input type="password" name="conpasswd" id="conpasswd" placeholder="Confirm Password" required>
+                        </div>
+                    </div>
+                    <div class="message">
+                        {% if messages %}
+                            <ul class="messages">
+                            {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <br>
+                <div class="buttons">  
+                <button class="nextBtn" type="submit">
+                    <span class="btnText">Submit</span>
+                    <i class="uil uil-navigator"></i>
+                </button>
+                </div>
+            </div>    
+        </form>
+    </div>
+    </div>
+    <script src="{% static 'message.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'loginstyle.css' %}">
+
+    <style>
+        body {
+        background-image: url('{% static "jigjigau.jpg" %}');
+        background-size: cover;
+        }
+        .message {
+        align-items: center;
+        text-align: center;
+        justify-content: right;   
+        }        
+        .messages li {
+        padding: 7px;
+        margin-bottom: 7px;
+        color: #fff;
+        border-radius: 4px;
+        width: 230px;
+        height: 40px;
+        font-size: 14px;
+        text-align: center;
+        justify-content: right;
+        color: rgb(255, 0, 0);
+        font-weight: bold;
+        }
+        .success {
+        color: rgb(84, 196, 84);
+        font-size: 14px;
+        text-align: center;
+        justify-content: right;
+        }
+        .error {
+        color: rgb(170, 48, 48);
+        font-size: 14px;
+        text-align: center;
+        justify-content: right;
+        }
+        </style>
+
+    <title>Login</title> 
+</head>
+<body>
+    <div class="main">
+    <div class="container">
+        <form action = "" method="POST">
+            {% csrf_token %}
+            <div class="form first">
+                <div class="fields">
+                    <div class="carousel owl-carousel">
+                        <div class="card">
+                            <div class="box">
+                                <img src="{% static 'logo.jpg' %}" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                        <br>
+                    <div class="input-field">
+                        <input type="text" name="username" id="username" placeholder="Username" required>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="password" name="password" id="password" placeholder="Password" required>
+                    </div>
+
+                    <div class="input-user">
+                        <select id="user_type" name="user_type">
+                            <option value="register">Registerar</option>
+                            <option value="college">College</option>
+                            <option value="department">Department</option>
+                            <option value="instructor">Instructor</option>
+                            <option value="student">Student</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="message">
+                    {% if messages %}
+                        <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            <div class="buttons">  
+            <button class="nextBtn" type="submit">
+                <span class="btnText">Login</span>
+                <i class="uil uil-navigator"></i>
+            </button>
+            </div>
+        </div>       
+        </form>
+    </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--{% load static %}
+<html>
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'loginstyle.css' %}">
+
+    <style>
+    body {
+    background-image: url('{% static "jigjigau.jpg" %}');
+    background-size: cover;
+    }
+    .message {
+    align-items: center;
+    text-align: center;
+    justify-content: right;   
+    }        
+    .messages li {
+    padding: 7px;
+    margin-bottom: 7px;
+    color: #fff;
+    border-radius: 4px;
+    width: 400px;
+    height: 40px;
+    font-size: 14px;
+    text-align: center;
+    justify-content: right;
+
+    }
+    .success {
+    background-color: rgb(84, 196, 84);
+    }
+    .error {
+    background-color: rgb(170, 48, 48);
+    }
+    </style>
+</head> 
+ <body>
+  
+ <section class="about" id="about">
+    <div class="max-width">
+        <div class="message">
+            {% if messages %}
+                <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    <br>
+        <div class="carousel owl-carousel">
+            <div class="card">
+                <div class="box">
+                    <img src="{% static 'logo.jpg' %}" alt="Image">
+                </div>
+            </div>
+        </div>  
+    <br><br>
+    <form action = "" method="POST">
+        {% csrf_token %} 
+        <p class="test"> 
+        <label class = "user" for="user"></label>
+        <input type= "username" name= "username" id="username" placeholder="Enter username">
+        <br><br>
+
+        <label class="user" for= "password"></label>
+        <input  type= "password" name= "password" id="id_password" placeholder="Enter Your Password">
+        <br><br>
+
+        <label for="user_type"></label>
+        <select id="user_type" name="user_type">
+            <option value="register">Register</option>
+            <option value="college">College</option>
+            <option value="department">Department</option>
+            <option value="instructor">Instructor</option>
+            <option value="student">Student</option>
+        </select>
+        <br><br><br>
+
+        <input class = "login" type = "submit"  value="Login"> 
+        <br><br>              
+    </form>            
+    </div>
+</section>
+</main>
+<script src="{% static 'message.js' %}"></script>
+</body>
+</html>-->

@@ -1,0 +1,158 @@
+{% load static %}
+<html>
+<head>
+  <title>Comment Box</title>
+  <style>
+    /* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.main{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    position: relative;
+    width: 65%;
+    padding: 0;
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 0 15px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.4);
+}
+.container header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+.container header::before{
+    content: "";
+    position: relative;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;  
+}
+.container form{
+    position: relative;
+    margin-top: 16px;
+    min-height: 300px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.container form .title{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+}
+.container form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.comment {
+    width: 700px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+  }
+  .comment input[type="text"],
+  .comment textarea {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+  }
+  .comment input[type="submit"]{
+    padding: 10px 20px;
+    background-color: #4070f4;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .message{
+    align-items: center;
+    text-align: center;
+    justify-content: right;   
+    }        
+    .messages li {
+    padding: 7px;
+    margin-bottom: 7px;
+    color: #fff;
+    border-radius: 3px;
+    width: 200px;
+    height: 30px;
+    font-size: 14px;
+    text-align: center;
+    justify-content: right;
+
+    }
+    .success {
+    background-color: rgb(84, 196, 84);
+    }
+    .error {
+    background-color: rgb(170, 48, 48);
+    }
+  </style>
+</head>
+<body>
+  {% include 'rNavbar.html' %}
+  <div class="main">
+  <div class="container">
+    <h3>Announce</h3>
+    <div class="message">
+      {% if messages %}
+          <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+          </ul>
+      {% endif %}
+  </div>
+    <form action = "" method="POST" enctype="multipart/form-data">
+        {% csrf_token %} 
+      <div class="comment"> 
+      <textarea type="text" id="feed" name="feed" rows="7" required></textarea>
+
+      <label for="user_type">User Type:</label>
+        <select id="user" name="user">
+            <option value="college">College</option>
+            <option value="department">Department</option>
+            <option value="instructor">Instructor</option>
+            <option value="student">Student</option>
+        </select>
+        
+        <br><br>
+      <input class="btn" type="submit" value="Submit">
+    </div>
+    </form>
+  </div>
+  </div>
+  <script src="{% static 'message.js' %}"></script>
+</body>
+</html>

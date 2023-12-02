@@ -1,0 +1,89 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<style>
+    body {
+        padding: 0px;
+        margin: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    table {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-collapse: collapse;
+        width: 800px;
+        height: 200px;
+        border: 1px solid #bdc3c7;
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    tr {
+        transition: all .2s ease-in;
+        cursor: pointer;
+    }
+
+    th,
+    td {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+    #header {
+        background-color: #0f1111;
+        text-align: center;
+        color: #fff;
+        height: 10px;
+        font-family: 'Poppins', sans-serif;
+    }
+    tr:hover {
+        background-color: rgb(255, 255, 255);
+        transform: scale(1.02);
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    }
+    @media only screen and (max-width: 768px) {
+        table {
+            width: 90%;
+        }
+    }
+</style>
+
+<body>
+    {% include 'cNavbar.html' %}
+    <div class="main">
+    <table>
+        <tr id="header">
+            <th>Student</th>
+            <th>Course</th>
+            <th>Credit</th>
+            <th>Year</th>
+            <th>Semester</th>
+            <th>Grade</th>
+            <th>Point</th>
+            <th>Semester</th>
+            <th>Cumulative</th>
+            <th>Department</th>
+        </tr>
+        {% for grade in grade %}
+        <tr>
+            <td>{{ grade.sid }}</td>
+            <td>{{ grade.ctitle }}</td>
+            <td>{{ grade.cr_hr }}</td>
+            <td>{{ grade.year }}</td>
+            <td>{{ grade.semi }}</td>
+            <td>{{ grade.grade }}</td>
+            <td>{{ grade.grpoint }}</td>
+            <td>{{ grade.semigrade }}</td>
+            <td>{{ grade.cumulative }}</td>
+            <td>{{ grade.approval }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+</body>
+</html>

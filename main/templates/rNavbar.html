@@ -1,0 +1,180 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  .max-width{
+      max-width: 1300px;
+      padding: 0 80px;
+      margin: auto;
+  }
+  .navbar{
+      position: fixed;
+      width: 100%;
+      padding: 10px 10px;
+      z-index: 999;/* hide Header below navbar*/
+      font-family:sans-serif;
+      transition: all 0.3s ease;
+      background: rgb(107, 86, 90);
+  }
+  .navbar.sticky{
+      padding: 15px 0;
+      background: crimson;
+  }
+  .navbar .max-width{
+      display: flex; 
+      align-items: center;
+      justify-content: space-between;
+  }
+  .navbar .logo a{
+      color: white;
+      font-size: 30px;
+      font-weight: 600;
+  }
+  .navbar .menu li{
+      list-style: none;
+      display: inline-block;
+  }
+  .navbar .menu li a{
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+      margin-left: 25px;
+      transition: color 0.3s ease;
+  }
+  .navbar .menu li a:hover{
+      color: rgb(0, 0, 0);
+  }
+  .navbar.sticky .menu li a:hover{
+      color: crimson;
+  }
+  
+  /* menu button styling */
+  .menu-btn img {
+   width: 15px;
+   height: 15px;
+   mix-blend-mode:multiply;
+   cursor: pointer;
+   display: none;
+  }
+  .navbar.sticky .menu-btn img {
+    width: 30px;
+    height: 30px;
+    mix-blend-mode: multiply;
+    cursor: pointer;
+  }
+  .navbar .logout a{
+    color: white;
+    font-size: 20px;
+    font-weight: 530;
+  }
+  .navbar .logout a:hover{
+    color: rgb(255, 0, 0);
+  }  
+  .user-icon{
+    width: 30px;
+    height: 30px;
+  }  
+  .menu .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    padding: 0;
+  }
+  .menu .dropdown-menu {
+    display: none;
+    position: absolute;
+    background: rgb(107, 86, 90);
+    padding: 0;
+  }
+  .menu .dropdown-menu li {
+    display: block;
+  }
+  .menu .dropdown:hover .dropdown-menu {
+    display: block;
+  }/*
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+nav ul li {
+  display: inline-block;
+}
+  
+nav ul li a {
+    display: block;
+    text-decoration: none;
+}
+.dropdown-menu li {
+    display: block;
+}
+  
+.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: transparent;
+    padding: 0;
+}*/
+</style>
+</head>
+<body>
+    <!-- navigation &#9662;-->
+    <header class="nav">
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">REGISTRAR</a></div>
+            <ul class="menu">
+              <li class="dropdown">
+                <a href="#">Student</a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'senioreg' %}">Senior</a></li>
+                  <li><a href="{% url 'freshmreg' %}">Freshman</a></li>
+                  <li><a href="{% url 'AllStu' %}">List</a></li>
+                </ul>  
+              </li>
+              <li class="dropdown">
+                <a href="#">Instructor</a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'AddIns' %}">Add</a></li>
+                  <li><a href="{% url 'insinfo' %}">List</a></li>
+                </ul>  
+              </li>
+              <li class="dropdown">
+                <a href="#">Department</a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'AddDep' %}">Add</a></li>
+                  <li><a href="{% url 'ViewDep' %}">List</a></li>
+                </ul>  
+              </li>
+              <li class="dropdown">
+                <a href="#">College</a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'AddCollege' %}">Add</a></li>
+                  <li><a href="{% url 'ViewColl' %}">List</a></li>
+                </ul>  
+              </li>
+              <li><a href="{% url 'announce' %}" class="menu-btn">Post Feeds</a></li>
+              <li><a href="{% url 'Collgrade' %}" class="menu-btn">Grade</a></li>
+              <li><a href="{% url 'view_withdraw' %}" class="menu-btn">Withdraw</a></li>
+            </ul> 
+            <div class="logout"><a href="{% url 'rPasswdChange' %}"><img src="{% static 'password.png' %}" class="user-icon" alt="User Icon"></a></div>
+            <div class="logout"><a href="{% url 'login' %}"><img src="{% static 'logout.png' %}" class="user-icon" alt="User Icon"></a></div>
+        </div>
+    </nav>    
+</header>
+</body>
+</html>

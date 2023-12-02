@@ -1,0 +1,140 @@
+{% load static %}
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My HomePage</title>
+        <link rel="stylesheet" href="{% static 'homestyle.css' %}">
+        <style>
+            
+            .home{
+                display: flex;
+                background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)) ,url('{% static "jigjigau.jpg" %}') no-repeat center;
+                height: 100vh;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover ;
+                background-attachment: fixed;
+                color: #fff;
+                min-height: 500px;
+                font-family:sans-serif;
+            }
+            .social-icons {
+                display: flex;
+                justify-content: center; /* Horizontally center the icons */
+                align-items: center; /* Vertically center the icons */ 
+            }
+            .social-icons a {
+                margin-right: 10px;
+                margin-bottom: 10px;
+               }
+            .social-icons img {
+                width: 25px;
+                height: 25px;
+            }
+            section .title2{
+                display: flex;
+                position: relative;
+                text-align: center;
+                font-size: 20px;
+                font-weight: 530;
+                font-family:sans-serif;
+                margin-bottom: 5px;
+                padding-bottom: 5px; 
+            }
+            .title2{
+                text-align: center;
+            }
+            nav{
+                position: fixed;
+                width: 100%;
+                padding: 5px 0;
+                z-index: 999;
+                font-family:sans-serif;
+                transition: all 0.3s ease;
+                display:inline-block;
+            }
+            nav.sticky{
+                padding: 0;
+                background: rgb(107, 86, 90);
+                display: inline;
+            }
+            
+        </style>
+       
+    </head>
+    <body>
+        <!-- navigation -->
+        <header>
+        <nav>
+            <div class="max-width">
+                <div class="logo"><a href="#">JJU <span>SIMS</span></a></div>
+                <ul class="menu">
+                    <li><a href="#home" class="menu-btn">Home</a></li>
+                    <li><a href="#about" class="menu-btn">About</a></li>
+                    <li><a href="/admin/" class="menu-btn">Admin</a></li>
+                    <li><a href="{% url 'login' %}" class="menu-btn">LogIn</a></li>
+                    <!--<li class="dropdown">
+                        <a href="#">Student &#9662;</a>
+                        <ul class="dropdown-menu">
+                          <li><a href="{% url 'login' %}">Senior</a></li>
+                          <li><a href="{% url 'freshmreg' %}">Freshman</a></li>
+                        </ul>
+                    </li>-->
+                </ul>
+            </div>
+        </nav>    
+    
+    </header>
+        <!-- Home section  -->
+        <section class="home" id="home">
+            <div class="max-width">
+                <div class="home-content">
+                    <div class="text-1">Career Center</div>
+                    <div class="text-2">JIGJIGA UNIVERSITY</div>
+                   <!-- <div class="text-3"><span id="typing">Jigjiga University</span></div> -->
+                    
+                </div>
+            </div>
+        </section>
+    
+        
+          <!-- About page -->
+        <section class="about" id="about">
+            <div class="max-width">
+                <h1 class="title" >ABOUT JIGJIGA UNIVERSITY</h1>
+            <!--    <img src="{% static 'logo.jpg' %}" alt="logo" class="logo">  -->
+                        <p id="para">
+                            Jijsiga University is a university in Jijiga, the capital of the Somali Region, Ethiopia. 
+                            Jijiga is located in the south eastern part of Ethiopia, 635 kilometres from Addis Ababa. 
+                            Jijiga University is one of the 13 newly founded governmental universities in Ethiopia.
+                            
+                            Jigjiga University was established in 2005 with 714 students, expanding to take in c. 1,500 students in 2008,
+                            <br>
+                            The Jigjiga University Faculty of Law was formed in 2004 and planned to graduate its first batch graduates in July 2009. 
+                            The faculty has and academic staff of over 25 and takes about 60 students each year in a regular program and over 500 summer in service students.
+                        </p>
+            </div>
+            
+                <h1 class="title2" >Get in touch with us</h1>
+            <div class="social-icons">    
+                <a href="https://www.facebook.com/jigjigauniversity/" target="_blank">
+                  <img src="{% static 'facebook.png' %}" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/your-page" target="_blank">
+                  <img src="{% static 'instagram.png' %}" alt="Twitter">
+                </a>
+                <a href="https://twitter.com/jigjigauniveth" target="_blank">
+                    <img src="{% static 'twitter.png' %}" alt="Twitter">
+                </a>
+                <a href="https://www.youtube.com/@jigjigauniversity3789" target="_blank">
+                    <img src="{% static 'youtube.png' %}" alt="Twitter">
+                </a>
+                <!-- Add more social media icons and links as needed -->
+            </div>
+        </section>
+      <script src="{% static 'home.js' %}"></script>
+
+    </body>
+    </html>

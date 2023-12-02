@@ -1,0 +1,131 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'coursestyle.css' %}">
+    <style>
+        .message{
+          align-items: center;
+          text-align: center;
+          justify-content: right;   
+        }        
+        .messages li {
+          padding: 7px;
+          margin-bottom: 7px;
+          color: #fff;
+          border-radius: 4px;
+          width: 300px;
+          height: 32px;
+          font-size: 14px;
+          text-align: center;
+          justify-content: right;
+        
+        }
+        .success {
+          background-color: rgb(84, 196, 84);
+        }
+        .error {
+          background-color: rgb(170, 48, 48);
+        }
+    </style>
+    <title>Course</title> 
+</head>
+<body>
+    {% include 'dNavbar.html' %}
+    <div class="main">
+    <div class="container">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Course</span>
+
+                    <div class="message">
+                        {% if messages %}
+                            <ul class="messages">
+                            {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Course Title</Title></label>
+                            <input type="text" name="ctitle" id="ctitle" placeholder="Course" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Category</Title></label>
+                            <input type="text" name="category" id="category" placeholder="Course" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Prerequisite</Title></label>
+                            <input type="text" name="prerequisite" id="prerequisite" placeholder="Course" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Course Code</label>
+                            <input type="text" name="ccode" id= "ccode" placeholder="Course Code" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Department</Title></label>
+                            <input type="text" name="dep" id="dep" placeholder="Department" required>
+                        </div>
+
+                        <div class="input-field2">
+                            <label>Year</label>
+                            <select name="year" id="year" required>
+                                <option disabled selected>Year</option>
+                                <option>1st</option>
+                                <option>2nd</option>
+                                <option>3rd</option>
+                                <option>4th</option>
+                                <option>5th</option>
+                                <option>6th</option>
+                                <option>7th</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field2">
+                            <label>Semister</label>
+                            <select name="semi" id="semi" required>
+                                <option disabled selected>Semister</option>
+                                <option>1st</option>
+                                <option>2nd</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="input-field2">
+                            <label>Credit Hours</Title></label>
+                            <input type="text" name="cr_hr" id="cr_hr" placeholder="Credit Hours" required>
+                        </div>
+                        
+                        <div class="input-field2">
+                            <label>Lecture Hours</Title></label>
+                            <input type="text" name="lec_hr" id="lec_hr" placeholder="Lecture Hours" required>
+                        </div>
+
+                        <div class="input-field2">
+                            <label>Lab Hours</Title></label>
+                            <input type="text" name="lab_hr" id="lab_hr" placeholder="Lab Hours" required>
+                        </div>
+                        
+                    </div>
+                    </div>
+                    <button class="nextBtn">
+                        <span class="btnText">Submit</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+            </div>
+        </form>
+    </div>
+    </div>
+    <script src="{% static 'message.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assignstyle.css' %}">
+    <title>Assign Instructor</title>
+    <style>
+        .fields {
+        display: flex;
+        flex-direction: column;
+        }
+        .message{
+        align-items: center;
+        text-align: center;
+        justify-content: right;   
+        }        
+        .messages li {
+        padding: 7px;
+        margin-bottom: 7px;
+        color: #fff;
+        border-radius: 4px;
+        width: 400px;
+        height: 40px;
+        font-size: 14px;
+        text-align: center;
+        justify-content: right;
+        }
+        .success {
+        background-color: rgb(84, 196, 84);
+        }
+        .error {
+        background-color: rgb(170, 48, 48);
+        }   
+    </style> 
+</head>
+<body>
+    {% include 'dNavbar.html' %}
+    <div class="main">
+    <div class="container">
+        <form method="POST" action="#">
+            {% csrf_token %}
+            <div class="form first">
+                <br><br>
+                <div class="message">
+                    {% if messages %}
+                        <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                <div class="fields">
+                        <div class="input-field">
+                            <label>Course Title</Title></label>
+                            <input type="text" name="ctitle" id="ctitle" placeholder="Course" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Course Code</label>
+                            <input type="text" name="ccode" id="ccode" placeholder="Course Code" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Section</label>
+                            <input type="text" name="section" id="section" placeholder="Section" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Instructor</Title></label>
+                            <input type="text" name="name" id="name" placeholder="Instructor" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Instructor ID</Title></label>
+                            <input type="text" name="insid" id="insid" placeholder="ID" required>
+                        </div>
+                <div class="buttons">  
+                    <button class="nextBtn" type="submit">
+                        <span class="btnText"> Submit</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+    <script src="{% static 'message.js' %}"></script>
+</body>
+</html>

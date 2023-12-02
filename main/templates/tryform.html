@@ -1,0 +1,10 @@
+{% block content %}
+{% csrf_token %}
+  <form action="" method="post">
+    {{ context }}
+    <button type="submit">
+        Register
+    </button>
+  </form>
+
+{% endblock %}

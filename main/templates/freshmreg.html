@@ -1,0 +1,186 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'freshmreg.css' %}">
+ 
+    <title>New Student Regisration Form </title>
+    <style>
+    .message{
+    align-items: center;
+    text-align: center;
+    justify-content: right;   
+    }        
+    .messages li {
+    padding: 7px;
+    margin-bottom: 7px;
+    color: #fff;
+    border-radius: 4px;
+    width: 400px;
+    height: 40px;
+    font-size: 14px;
+    text-align: center;
+    justify-content: right;
+
+    }
+    .success {
+    background-color: rgb(84, 196, 84);
+    }
+    .error {
+    background-color: rgb(170, 48, 48);
+    }
+    </style>
+</head>
+<body>
+    {% include 'rNavbar.html' %}
+    <div class="main">
+    <div class="container">
+        <header>Freshman Registration</header>
+        <form action = "" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form first">
+                <div class="details personal">
+                    <span class="title">Personal Details</span>
+                <div class="message">
+                    {% if messages %}
+                        <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>First Name</label>
+                            <input type="text" name="fName" id="fName" placeholder="Enter your First Name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Middel Name</label>
+                            <input type="text" name="mName" id="mName" placeholder="Enter your Middel Name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Last Name</label>
+                            <input type="text" name="lName" id="lName" placeholder="Enter your Last Name" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Gender</label>
+                            <select name="sex" id="sex" required>
+                                <option disabled selected>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Mobile Number</label>
+                            <input type="number" name="phone" id="phone" placeholder="Enter mobile number" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Email</label>
+                            <input type="email" name="email" id="email" placeholder="Enter your Email" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details ID">
+                    <span class="title"> Address </span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Region</label>
+                            <input type="text" name="region" id="region" placeholder="Enter Region" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Subcity/Zone</label>
+                            <input type="text" name="subcity" id="subcity" placeholder="Enter Subcity/Zone" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>City</label>
+                            <input type="text"  name="city" id="city" placeholder="Enter City" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Wereda</label>
+                            <input type="text" name="woreda" id="woreda" placeholder="Enter Wereda" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Kebele</label>
+                            <input type="text" name="kebele" id="kebele" placeholder="Enter Kebele" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Date of Birth</label>
+                            <input type="date"  name="DOB" id="DOB" placeholder="Enter Date of Birth" required>
+                        </div>
+                    </div>
+                </div>
+                <span class="title">Educational Background</span>
+                <div class="input-field">
+                    <label>Stream</label>
+                    <select name="dep" id="dep" required>
+                        <option disabled selected>Select your stream</option>
+                        <option>Natural Science</option>
+                        <option>Social Science</option>
+                    </select>
+                </div>
+                
+                <button class="nextBtn" type = "submit">
+                    <span class="btnText">Register</span>
+                   <i class="uil uil-navigator"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    </div>
+    <script src="{% static 'message.js' %}"></script>
+</body>
+</html>
+
+<!--<div class="fields">
+                        <div class="input-file">
+                            <label>Grade 8 Result</label>
+                            <input type="file" name="grade8" id="grade8">
+                        </div>
+
+                        <div class="input-file">
+                            <label>Grade 9&10 Transcribt</label>
+                            <input type="file" name="grade9_10" id="grade9_10">
+                        </div>
+
+                        <div class="input-file">
+                            <label>Grade 10 Result</label>
+                            <input type="file" name="grade10" id="grade10">
+                        </div>
+
+                        <div class="input-file">
+                            <label>Grade 11&12 Transcribt</label>
+                            <input type="file" name="grade11_12" id="grade11_12">
+                        </div>
+
+                        <div class="input-file">
+                            <label>Grade 12 Result</label>
+                            <input type="file" name="grade12" id="grade12">
+                        </div>
+                        
+                        <div class="input-file">
+                            <label>Your 3x4 photo</label>
+                            <input type="file" name="photo" id="photo">
+                        </div>
+                    </div>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{ message}}
+                      </div>
+                -->

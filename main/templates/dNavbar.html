@@ -1,0 +1,137 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Department</title>
+    
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  
+  .max-width{
+      max-width: 1300px;
+      padding: 0 80px;
+      margin: auto;
+  }
+  .navbar{
+      position: fixed;
+      width: 100%;
+      padding: 10px 10px;
+      z-index: 999;/* hide Header below navbar*/
+      font-family:sans-serif;
+      transition: all 0.3s ease;
+      background: rgb(107, 86, 90);
+  }
+  .navbar.sticky{
+      padding: 15px 0;
+      background: crimson;
+  }
+  .navbar .max-width{
+      display: flex;  /* sets the flexible length on flexible items. Display:flex apply flex layout to the flex items or children of the container only*/
+      align-items: center;
+      justify-content: space-between;
+  }
+  .navbar .logo a{
+      color: white;
+      font-size: 30px;
+      font-weight: 600;
+  }
+  .navbar .menu li{
+      list-style: none;
+      display: inline-block;
+  }
+  .navbar .menu li a{
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+      margin-left: 25px;
+      transition: color 0.3s ease;
+  }
+  .navbar .menu li a:hover{
+      color: rgb(0, 0, 0);
+  }
+  .navbar.sticky .menu li a:hover{
+      color: crimson;
+  }
+  /* menu button styling */
+  .menu-btn img {
+      width: 15px;
+      height: 15px;
+      mix-blend-mode:multiply;
+      cursor: pointer;
+      display: none;
+   }
+    .navbar.sticky .menu-btn img {
+      width: 30px;
+      height: 30px;
+      mix-blend-mode: multiply;
+      cursor: pointer;
+    }
+    .navbar .logout a{
+      color: white;
+      font-size: 20px;
+      font-weight: 530;
+    }
+    .navbar .logout a:hover{
+          color: rgb(255, 0, 0);
+    }  
+    .user-icon{
+        width: 30px;
+        height: 30px;
+    }
+    .menu .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    padding: 0;
+  }
+  .menu .dropdown-menu {
+    display: none;
+    position: absolute;
+    background: rgb(107, 86, 90);
+    padding: 0;
+  }
+  .menu .dropdown-menu li {
+    display: block;
+  }
+  .menu .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+    </style>
+
+</head>
+<body>
+    <!-- navigation -->
+    <header class="nav">
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">DEPARTMENT</a></div>
+            <ul class="menu">
+                <li><a href="{% url 'dfeed' %}" class="menu-btn">Feeds</a></li>
+                <li class="dropdown">
+                    <a href="#">Assign</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{% url 'assign' %}">Add</a></li>
+                      <li><a href="{% url 'ViewAssign' %}">List</a></li>
+                    </ul>  
+                  </li>
+                  <li><a href="{% url 'course' %}" class="menu-btn">Post Course</a></li>
+                <li><a href="{% url 'ViewMyIns' %}" class="menu-btn">Instructors</a></li>
+                <li><a href="{% url 'Stuinfo' %}" class="menu-btn">Students</a></li>
+                <li><a href="{% url 'Stugrade' %}" class="menu-btn">Grade</a></li>
+                <li><a href="{% url 'approval' %}" class="menu-btn">Approve</a></li>
+            </ul>
+            <div class="logout"><a href="{% url 'dPasswdChange' %}"><img src="{% static 'password.png' %}" class="user-icon" alt="User Icon"></a></div>
+            <div class="logout"><a href="{% url 'login' %}"><img src="{% static 'logout.png' %}" class="user-icon" alt="User Icon"></a></div> 
+        </div>
+    </nav>    
+</header>
+</body>
+</html>
+    

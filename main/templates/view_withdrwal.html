@@ -1,0 +1,47 @@
+</html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'freshmreg.css' %}">
+ 
+    <title>Withdrawal request</title> 
+</head>
+<body>
+  {% include 'rNavbar.html' %}
+    <div class="main"> 
+    <div class="container">
+        <header>Withdrawal Request</header>
+            {% csrf_token %}
+            <br><br>
+            <div class="form first">
+              {% for item in data %}  
+              <p>First Name: {{ item.fName }}</p>
+              <br>
+              <p>Middle Name: {{ item.mName }}</p>
+              <br>
+              <p>Last Name: {{ item.lName }}</p>
+              <br>
+              <p>Id Number: {{ item.stuid }}</p>
+              <br>
+              <p>Batch: {{ item.year }}</p>
+              <br>
+              <p>Date: {{ item.date }}</p>
+              <br>
+              <p>Case: {{ item.reason }}</p>
+              <br>
+              {% if item.evid %}
+                <p>Medical or other Evidence: <a href="{{ item.evid.url }}" target="_blank">Open PDF</a></p>
+              {% endif %}
+            {% empty %}
+              <p>No Withdrawal request for today.</p>
+            {% endfor %}
+            </div>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

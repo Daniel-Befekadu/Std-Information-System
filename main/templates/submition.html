@@ -1,0 +1,69 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'submitstyle.css' %}">
+    <style>
+        .fields {
+            display: flex;
+            flex-direction: column;
+            }
+    </style>
+ 
+    <title>Grade Submition Form</title> 
+</head>
+<body>
+    {% include 'iNavbar.html' %}
+    <div class="main">
+    <div class="container">
+        <form action = "" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form first">
+                <br><br>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Student ID</Title></label>
+                            <input type="text" name="sid" id="sid" placeholder="Student ID" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Course Title</Title></label>
+                            <select name="ctitle" id="ctitle" required>
+                                {% for Assign in course_list %}
+                                  <option value="{{ Assign.ctitle }}">{{ Assign.ctitle }}</option>
+                                {% endfor %}
+                              </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Grade</Title></label>
+                            <!--<input type="text" name="grade" id="grade" placeholder="Grade" required>-->
+                            <select id="grade" name="grade" placeholder="Grade" required>
+                                <option value="A+">A+</option>
+                                <option value="A">A</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B">B</option>
+                                <option value="B-">B-</option>
+                                <option value="C+">C+</option>
+                                <option value="C">C</option>
+                                <option value="C-">C-</option>
+                                <option value="D">D</option>
+                                <option value="F">F</option>
+                            </select>
+                        </div>
+                    <div class="buttons">  
+                    <button class="nextBtn" type="submit">
+                        <span class="btnText"> Submit</span>
+                        <i class="uil uil-navigator"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

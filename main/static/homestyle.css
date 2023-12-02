@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+.max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+  }
+
+  /* navbar styling */
+
+nav .max-width{
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+}
+nav .logo a{
+    color:#fff;
+    font-size: 35px;
+    font-weight: 600;
+}
+nav .logo a span{
+   color: crimson;
+   transition: all 0.3s ease;   
+}
+nav.sticky .logo a span{
+    color: #fff;
+}
+nav .menu li a{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+nav .menu li a:hover{
+    color: crimson;
+}
+nav.sticky .menu li a:hover{
+    color: #fff;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+nav ul li {
+  display: inline-block;
+}
+  
+nav ul li a {
+    display: block;
+    text-decoration: none;
+}
+.dropdown-menu li {
+    display: block;
+}
+  
+.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background: transparent;
+    padding: 0;
+}
+
+  /* menu button styling */
+  .menu-btn img {
+    width: 15px;
+    height: 15px;
+    mix-blend-mode:multiply;
+    cursor: pointer;
+    display: none;
+   }
+nav.sticky .menu-btn img {
+    width: 30px;
+    height: 30px;
+    mix-blend-mode: multiply;
+    cursor: pointer;
+    }
+
+  /* Home section styling */
+.home{
+    display: flex;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)) ,url('{% static "jigjigau.jpg" %}') no-repeat center;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover ;
+    background-attachment: fixed;
+    color: #fff;
+    min-height: 500px;
+    font-family:sans-serif;
+  }
+.home .max-width{
+    margin: auto 0 auto 40px ;
+  }
+.home .home-content .text-1{
+    font-size: 27px;
+  }
+.home .home-content .text-2{
+    font-size: 75px;
+    font-weight: 600;
+    margin-left: -3px;
+  }
+.home .home-content .text-3{
+    font-size: 40px;
+    margin: 5px 0;
+  }
+.home .home-content .text-3 span{
+    color: crimson;
+    font-weight: 500;
+  }
+  
+  /* about page */
+.logo{
+    padding: 20px;
+    background-size: cover;
+    float: left;
+    width: 300px;
+    height: 100%;
+  }
+#para{  
+    font-size: 20px;
+  }
+.title{
+    text-align: center;
+  }
+  /* all similar content styling codes */
+  
+section{
+    padding: 5px 0;
+    position: relative;
+    margin-bottom: 5px;
+    padding-bottom: 50px;
+  }
+section .max-width{
+  position: relative;
+  margin-bottom: 5px;
+  padding-bottom: 50px;
+}
+section .title{
+    position: relative;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 500;
+    margin-bottom: 50px;
+    padding-bottom: 5px;
+  }
+  section .title2{
+    position: relative;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    padding-bottom: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title2{
+    text-align: center;
+}
+
+
