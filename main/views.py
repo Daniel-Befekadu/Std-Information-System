@@ -8,7 +8,6 @@ from django.db.models import Sum
 from django.contrib import messages
 from decimal import Decimal, ROUND_HALF_UP
 
-# Create your views here.
 def home(request):
     return render(request, 'home.html')
 
