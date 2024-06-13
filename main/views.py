@@ -253,7 +253,6 @@ def AssignInst(request):
         assign.save()
         
         messages.success(request, 'Teacher Assigned Successfully!')
-        #return redirect('success')
 
     return render(request, 'assign.html',)
 
@@ -290,14 +289,11 @@ def login(request):
             try:
                 college = College.objects.get(collegeid=username, passwd=password)
                 coll_obj = College.objects.filter(passwd=password).values('collegeid').first()
-                #collName = College.objects.filter(collegeid=password).values('college').first()
                 colldep = Department.objects.filter(collegeid=coll_obj).values('dep')
                 print(coll_obj)
         
                 if coll_obj:
-                    #colldep = colldep.get('dep')
-                    #request.session['dep'] = colldep
-                    collegeid = coll_obj.get('collegeid')  # Access the 'regid' value using the get() method
+                    collegeid = coll_obj.get('collegeid') 
                     request.session['collegeid'] = collegeid
                     return redirect('cfeed')
                 else:
@@ -373,8 +369,6 @@ def approval(request):
                 depart = request.session.get('dep')
                 for grade in grades:
                     sid = grade['sid']
-                    #year = grade['year']
-                    #semi = grade['semi']
 
                     
                     total_grpoint = Grade.objects.filter(sid=sid, year=year, semi=semi, section=section, dep=depart).aggregate(Sum('grpoint'))['grpoint__sum']
@@ -430,13 +424,12 @@ def withdrawal_form(request):
         withdrawal.save()
         
         message=messages.success(request, 'Yor Withdrawal Form Sent.')
-        #return redirect('success')
 
     return render(request, 'withdraw.html', {'message':message})
 
 def view_withdraw(request):
-    current_date = date.today()  # Get the current date
-    data = Withdraw.objects.filter(date=current_date)  # Retrieve data based on the current date
+    current_date = date.today() 
+    data = Withdraw.objects.filter(date=current_date)
     return render(request, 'view_withdrwal.html', {'data': data})
 
 def ViewMyGrade(request):
@@ -468,7 +461,6 @@ def ViewCollGrade(request):
 
 def collgrade_list(request, dep, year, semi):
 
-    #colldep = request.session.get('dep')
     grade = Grade.objects.filter(dep=dep, year=year, semi=semi)
     context = {
         'grade': grade
@@ -588,10 +580,8 @@ def passwordchange(request):
                 student.passwd = new_password
                 student.save()
                 messages.success(request, 'Password Changed Successfully!')
-                #return redirect('sPasswdChange')
             else:
                 messages.error(request, 'Wrong Password!')
-                #return redirect('incorrect_password')
         else:
             messages.error(request, 'The Password Does Not Match!')
 
@@ -619,7 +609,6 @@ def Ipasswordchange(request):
                 
             else:
                 messages.error(request, 'Wrong Password!')
-                #return redirect('incorrect_password')
         else:
             messages.error(request, 'The Password Does Not Match!')
 
@@ -644,7 +633,6 @@ def Dpasswordchange(request):
                 department.passwd = new_password
                 department.save()
                 messages.success(request, 'Password Changed Successfully!')
-                #return redirect('dPasswdChange')
             else:
                 messages.error(request, 'Wrong Password!')
         else:
@@ -696,7 +684,6 @@ def Rpasswordchange(request):
                 
             else:
                 messages.error(request, 'Wrong Password!')
-                #return redirect('incorrect_password')
         else:
             messages.error(request, 'The Password Does Not Match!')
             
