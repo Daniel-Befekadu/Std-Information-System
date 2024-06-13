@@ -5,7 +5,6 @@ from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.contrib.auth.hashers import make_password
 from decimal import Decimal
-# Create your models here.
 
 class Registrar(models.Model):
     name = models.CharField(max_length=100, null=True)
@@ -121,12 +120,8 @@ class Grade(models.Model):
     grpoint = models.DecimalField(max_digits=5, decimal_places=2, null= True)
     semigrade = models.DecimalField(max_digits=5, decimal_places=2, null= True)
     cumulative = models.DecimalField(max_digits=5, decimal_places=2, null= True)
-    #semigrade = models.FloatField(null= True)
-    #cumulative = models.FloatField(null= True)
     approval = models.CharField(max_length=10, null= True)
     collapproval = models.CharField(max_length=10, null= True)
-    #semigrade = models.DecimalField(max_digits=10, decimal_places=2, null= True)
-    #cumulative = models.DecimalField(max_digits=10, decimal_places=2, null= True)
 
 class Feed(models.Model):
     college = models.CharField(max_length=1000, null= True)
