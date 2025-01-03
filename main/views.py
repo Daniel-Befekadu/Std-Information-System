@@ -129,7 +129,6 @@ def displaySfeed(request):
     data = Feed.objects.filter(date=current_date).exclude(student__isnull=True).values('student')
 
     return render(request, 'feed.html', {'data': data})
-    
 
 def displayIfeed(request):
 
@@ -162,7 +161,6 @@ def mygrade(request):
     data = Grade.objects.filter(id=username).values('student')
 
     return render(request, 'feed.html', {'data': data})
-
 
 def submitgr(request):
     if request.method == 'POST':
@@ -254,8 +252,6 @@ def AssignInst(request):
         messages.success(request, 'Teacher Assigned Successfully!')
 
     return render(request, 'assign.html',)
-
-
 
 def signup(request):
     return render(request, 'signup.html')
