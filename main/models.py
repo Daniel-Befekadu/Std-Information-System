@@ -76,7 +76,6 @@ class Student(models.Model):
     kebele = models.CharField(max_length=10, null= True)
     email = models.EmailField(unique=True, null= True)
     phone = models.CharField(max_length=50, null= True)
-    #status = models.CharField(max_length=10, null= True)
     passwd = models.CharField(max_length=100, null= True)
     
     def save(self, *args, **kwargs):
