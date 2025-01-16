@@ -42,7 +42,6 @@ def senioreg(request):
             year = form.cleaned_data['year']
             semi = form.cleaned_data['semi']
             student = Student.objects.get(id=student_id)
-            # Retrieve the student object from the database
             try:
                 student = Student.objects.get(id=student_id)
             except Student.DoesNotExist:
